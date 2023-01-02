@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #one {
+            color: lightcoral
+        }
+
+        .aaa {
+            color: darkblue
+        }
+
+        .bbb {
+            background-color: bisque;
+        }
+
+        .ccc {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one">id one 인 element 입니다.</div>
+    <div class="aaa">class aaa 인 element 입니다.</div>
+    <div class="aaa bbb ccc">class aaa 이면서 동시에 bbb, ccc 를 가진 element 입니다.</div>
+    <script>
+        var text = document.querySelector("#one").innerText;
+        console.log(text);
+        text = document.querySelector(".bbb").innerText;
+        console.log(text);
+    </script>
+</body>
+
+</html>
