@@ -1,0 +1,24 @@
+h1 {
+    color: darkcyan;
+}
+
+#title {
+    background-color: bisque;
+}
+
+.aaa {
+    font-family: serif;
+}
+
+.bbb {
+    font-style: italic;
+}
+
+div,
+p {
+    padding: 10px;
+}
+
+div.aaa {
+    border: 1px solid blue;
+}
