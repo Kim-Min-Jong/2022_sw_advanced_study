@@ -1,0 +1,19 @@
+#guide {
+    margin: 50px;
+}
+
+.ml {
+    margin-left: 30px;
+}
+
+.mr {
+    margin-right: 20px;
+}
+
+.m-v-20-h-40 {
+    margin: 20px 40px;
+}
+
+.m-10-20-30-40 {
+    margin: 10px 20px 30px 40px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="margin.css"/>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- p tag default margin : 16px -->
+    <p>
+        안녕하세요. p 입니다.
+    </p>
+    <p id="guide">
+        안녕하세요. guide p 입니다.
+    </p>
+    <p class="ml mr">
+        안녕하세요. 좌우 마진 입니다.
+    </p>
+    <p class="m-v-20-h-40">
+        안녕하세요. 상하 20 좌우 40 마진 입니다.
+    </p>
+    <p class="m-10-20-30-40">
+        안녕하세요. 상 우 하 좌 10 20 30 40 마진 입니다.
+    </p>
+
+    <!-- margin: auto : 수평 정렬 효과-->
+    <div style="height: 300px; background-color: cornflowerblue;">
+        <div style="height: 100px; width: 200px; background-color:blueviolet; margin: auto;"></div>
+    </div>
+    <!-- 상하로 margin이 있을 경우 큰 margin값으로 합쳐짐-->
+    <!-- margin collapse -->
+    <h1>마진 테스트</h1>
+    <h1>마진 테스트</h1>
+    <h1>마진 테스트</h1>
+</body>
+
+</html>

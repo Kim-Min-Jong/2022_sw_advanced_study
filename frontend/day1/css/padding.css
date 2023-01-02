@@ -1,0 +1,11 @@
+p.pad {
+    padding: 20px
+}
+
+.p-v-20-h-40 {
+    padding: 20px 40px;
+}
+
+.p-10-20-30-40 {
+    padding: 10px 20px 30px 40px;
+}
