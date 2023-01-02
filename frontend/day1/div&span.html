@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 문서 css 조작-->
+    <style>
+        a {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- div & span -->
+    <!-- 기존의 의미있는 태그들은 너무 종속되어있음-->
+    <!-- 특정한 ui를 갖지않는 태그의 등장 -> div & span-->
+    <!-- div는 block으로 표현 span은 inline으로 표현-->
+    <!-- block은 내용이 어찌됐든 화면 너비 100%를 차지 -->
+    <!-- inline은 내용만큼 너비를 차지-->
+    <div>안녕하세요, div 입니다.</div>
+    <div>안녕하세요, div 입니다.</div>
+    <div>안녕하세요, div 입니다.</div>
+    <span>안녕하세요, span 입니다.</span>
+    <span>안녕하세요, span 입니다.</span>
+    <span>안녕하세요, span 입니다.</span>
+
+    <hr>
+    <div>
+        <h2>제목</h2>
+        <div>
+            <h4>row 1</h4>
+            <p>첫 번째 행입니다.</p>
+            <div>
+                <span>HTML</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>CSS</span> <span>Javascript</span>
+            </div>
+        </div>
+        <div>
+            <h4>row 2</h4>
+            <p>두 번째 행입니다.</p>
+            <div>
+                <!-- a태그는 기본적으로 inline속성을 가짐 (스타일조작으로 변경가능)-->
+                <a href="http://google.com" style="display: block;">google</a>
+                <a href="http://naver.com">naver</a>
+                <a href="http://kakao.com">kakao</a>
+            </div>
+        </div>
+        <div>
+            <h4>row 3</h4>
+            <p>세 번째 행입니다.</p>
+            <div>
+                <img src="lion14.jpg" style="width: 100px">라이언</img>
+                <img src="lion14.jpg" style="width: 150px">라이언</img>
+                <img src="lion14.jpg" style="width: 200px">라이언</img>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
