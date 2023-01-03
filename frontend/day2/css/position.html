@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        #container {
+            position: initial;
+            width: 600px;
+            height: 500px;
+            border: 1px solid purple;
+            margin-top: 100px;
+        }
+
+        #wrapper-ralative {
+            position: relative;
+            /* 자기 자신의 위치 기준으로 */
+            width: 400px;
+            height: 300px;
+
+            /* top: 50px; /* bottom: 50px; 위로 움직인다. absolute 일 때는 부모의 bottom에서 50px 떨어진다.*/
+            bottom: 30px;
+
+            border: 1px solid dodgerblue;
+        }
+
+        #wrapper-absolute {
+            position: absolute;
+            width: 400px;
+            height: 300px;
+
+            top: 100px; 
+            left: 50px;
+            
+            border: 1px solid yellowgreen;
+        }
+
+        .item-absolute {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            right: 30px;
+            background-color: sandybrown;
+        }
+
+        .item2-absolute {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            bottom: 50px;
+            left: 10px;
+            background-color: sandybrown;
+        }
+
+        .bottom-fixed {
+            position: fixed;
+            height: 50px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            background-color: mediumslateblue;
+        }
+
+
+        .h-center-absolute {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+
+            top: 150px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            /* 빼먹지 말자*/
+
+            background-color: sienna;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="wrapper-ralative">
+            <div id="wrapper-absolute">
+                <div class="item-absolute">item</div>
+                <div class="item2-absolute">item2</div>
+                <div class="bottom-fixed">bottom</div>
+            </div>
+
+            <div class="h-center-absolute">h-center-absolute</div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

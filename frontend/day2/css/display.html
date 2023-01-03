@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, span {
+            border: 1px solid blueviolet;
+        }
+        .inline-item
+        {
+            display: inline;
+        }
+
+        .block-item {
+            display: block;
+        }
+        .inline-block-item {
+            display: inline-block;
+        }
+
+        img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+        <!-- 화면을 줄여서 변화를 확인 -->
+        <h4>div vs span</h4>
+        <div>안녕하세요, div 입니다.</div>
+        <div>안녕하세요, div 입니다.</div>
+        <div>안녕하세요, div 입니다.</div>
+        <div>안녕하세요, div 입니다.</div>
+        <br>
+        <span>안녕하세요, span 입니다.</span>
+        <span>안녕하세요, span 입니다.</span>
+        <span>안녕하세요, span 입니다.</span>
+        <span>안녕하세요, span 입니다.</span>
+    
+        <h4>p vs img, anchor</h4>
+        <p>img 와 a tag 도 inline 입니다. 
+            <img src="lion14.jpg">
+            <img src="lion14.jpg">
+            <a href="http://google.com">google</a>
+            <a href="http://naver.com">naver</a> 
+        </p>
+    
+        <h4>change div to inline element</h4>
+        <div class="inline-item">안녕하세요, div 입니다.</div>
+        <div class="inline-item">안녕하세요, div 입니다.</div>
+        <div class="inline-item">안녕하세요, div 입니다.</div>
+        <div class="inline-item">안녕하세요, div 입니다.</div>
+    
+        <h4>change inline elements to block element</h4>
+        <span class="block-item">안녕하세요, span 입니다.</span>
+        <span class="block-item">안녕하세요, span 입니다.</span>
+        <span class="block-item">안녕하세요, span 입니다.</span>
+        <span class="block-item">안녕하세요, span 입니다.</span>
+    
+        <p>img 와 a tag 도 inline 입니다. 
+            <img class="block-item" src="lion14.jpg">
+            <img class="block-item" src="lion14.jpg">
+            <a class="block-item" href="http://google.com">google</a>
+            <a class="block-item" href="http://naver.com">naver</a> 
+        </p>
+        <!-- inline 은 width, height 를 가지지 못함. -->
+        <h4>inline-block</h4>
+        <span style="width: 100px; height:50px;">span</span><span style="width: 200px; height:50px;">span</span><span style="width: 200px; height:50px;">span</span>
+        <br>
+        <!-- inline-block 은 width, height 를 가짐. 화면이 작아져도 자신의 영역을 지키면서 다름 행으로 이동. -->
+        <!-- block은 다음 줄로 넘어가면서 유지 자신의영역을 지키지않음-->
+        <span class="inline-block-item" style="width: 100px; height:50px;">span</span><span class="inline-block-item" style="width: 200px; height:50px;">span</span><span class="inline-block-item" style="width: 200px; height:50px;">span</span><span class="inline-block-item" style="width: 200px; height:50px;">span</span><span class="inline-block-item" style="width: 200px; height:50px;">span</span>
+    
+        <!-- display: none-->
+        <h2 style="display: none;">보이나요?</h2>
+</body>
+</html>

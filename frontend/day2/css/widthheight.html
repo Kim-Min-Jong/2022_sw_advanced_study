@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 500px;
+            background-color: darkcyan;
+            border: 1px solid blue;
+            max-width: 400px;
+        /* 
+        child element 가 600 일 경우, width 는 overflow 가 생긴다.
+        max-width: 일 경우는 overflow 가 안생긴다. max-width 범위에서만 보인다.
+        max-width 는 width 를 무시하고 덮어쓴다.
+         */
+        }
+
+        .inner {
+            width: 600px;
+            height: 200px;
+            background-color: antiquewhite;
+            border: 5px solid lightcoral;
+        }
+        /*inline 속성은 width height속성이 적용이 안됨*/
+        .inner2 {
+            width: 600px;
+            height: 200px;
+            background-color: blue;
+            border: 5px solid red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="inner"></div>
+        <span class="inner2">123123123</span>
+    </div>
+</body>
+
+</html>
