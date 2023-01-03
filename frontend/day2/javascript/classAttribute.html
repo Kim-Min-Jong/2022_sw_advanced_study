@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Attribute</title>
+    <style>
+        #shape{
+            width: 400px;
+            height: 400px;
+            border: 1px solid lightsalmon;
+            cursor: pointer;
+        }
+        .circle{
+            border-radius: 50%;
+        }
+
+        .rect{
+            border-radius: 0%;
+        }
+
+        .rounded-rect{
+            border-radius: 15%;
+        }
+
+        .bg-black{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="shape"></div>
+    <hr>
+    <!-- user-defined 속성일때는 data- 를 붙여줌 (코딩컨벤션) -->
+    <button id="btnCircle" data-click-count="0">circle</button>
+    <button id="btnRect" data-click-count="0">rect</button>
+    <button id="btnRoundedRect" data-click-count="0">rounded-rect</button>
+    <hr>
+    <button id="btnClickCountInfo">click count info</button>
+    <p id="pCountInfo">버튼을 click 하세요.</p>
+    <script src="classAttribute.js"></script>
+    
+</body>
+</html>

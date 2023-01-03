@@ -10,6 +10,5 @@ num = 10;
 num++;
 console.log(num);
 console.log(--num);
-console.log(num--);
 console.log(num);
-
+console.log(num);
