@@ -33,7 +33,7 @@ window.onload = function(){
         this.setAttribute( "data-click-count", parseInt(this.getAttribute("data-click-count")) + 1 );
     });
 
-    // class toggle
+    // class toggle  (없으면 자동삽입 있으면 삭제)
     shape.addEventListener("mouseover", function(){
         shape.classList.toggle("bg-black");
     });

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <form id="loginForm" action="">
+            <input id="domain" type="hidden" value="abc">
+            <label for="userId">아이디</label><br>
+            <input id="userId" type="text" /><br>
+            <label for="password">패스워드</label><br>
+            <input id="password" type="password" /><br>
+        </form>
+        <br>
+        <input id="btnLogin" type="button" value="로그인">
+        <hr>
+        <form id="registerForm" action="">
+            <label for="userName">이름</label><br>
+            <input id="userName" type="text" /><br>
+            <label for="userEmail">e-mail</label><br>
+            <input id="userEmail" type="email" /><br>
+
+            <label>성별</label><br>
+            <input id="male" type="radio" name="gender" value="M"><label for="male">남</label>
+            <input id="female" type="radio" name="gender" value="F" checked><label for="female">여</label><br>
+
+            <label>취미</label><br>
+            <input id="movie" type="checkbox" name="hobby" value="movie">
+            <label for="movie">영화</label>
+            <input id="sport" type="checkbox" name="hobby" value="sport" checked>
+            <label for="sport">스포츠</label>
+            <input id="mung" type="checkbox" name="hobby" value="mung">
+            <label for="mung">멍때리기</label>
+            <br>
+            <label for="major">전공</label>
+            <select name="major" id="major" multiple> <!-- multiple -->
+                <option value="CS">Computer Science</option>
+                <option value="HI" selected>History</option>
+                <option id="KL" value="KL">Korean Language</option>
+            </select>
+            <br>
+            <label for="desc">기타</label><br>
+            <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+        </form>
+        <br>
+        <input id="btnRegister" type="button" value="가입하기">
+        <hr>
+        <form id="searchForm" action="">
+            <label for="searchWord">검색어</label> <input id="searchWord" type="text" /> <input id="btnSearch"
+                type="button" value="검색">
+        </form>
+    </div>
+    <script src="FormElementGet.js"></script>
+</body>
+
+</html>
