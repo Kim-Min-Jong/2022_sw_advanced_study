@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <h1>Parameter By Fetch</h1>
+   <h4>Fetch 요청에 대한 Controller 의 응답은 JSON 으로 ( @RestController )</h4>
+
+   <button id="btnParam1">param1</button>   
+   <button id="btnParam2">param2</button>
+   <button id="btnCar1">car1</button>
+   <button id="btnCar2">car2</button>
+   <button id="btnSession">session</button>
+   <button id="btnSession2">session2</button>
+   
+   
+   <script>
+   		window.onload = function() {
+   			document.querySelector("#btnParam1").onclick = async function(){
+   	         
+   	           let response = await fetch("/param1?seq=123");
+   	           let data = await response.json()
+   	         console.log(data);
+   	      };
+   	      
+   	      document.querySelector("#btnParam2").onclick = async function(){
+   	         
+   	           let response = await fetch("/param2?seq=123");
+   	           let data = await response.json()
+   	         console.log(data);
+   	      };
+   	      
+   	      document.querySelector("#btnCar1").onclick = async function(){
+   	         
+   	         let response = await fetch("/car1?name=volvo&price=6000");
+   	         let data = await response.json()
+   	         console.log(data);
+   	      };
+   	      
+   	      document.querySelector("#btnCar2").onclick = async function(){
+   	         
+   	         let response = await fetch("/car2?name=volov&price=6000");
+   	         let data = await response.json()
+   	         console.log(data);
+   	      };
+   	      
+   	      document.querySelector("#btnSession").onclick = async function(){
+   	         
+   	         let response = await fetch("/session?name=volov&price=6000");
+   	         let data = await response.json()
+   	         console.log(data);
+   	      };
+   	      
+   	      document.querySelector("#btnSession2").onclick = async function(){
+    	         
+    	         let response = await fetch("/session2");
+    	         let data = await response.json()
+    	         console.log(data);
+    	      };
+   		}
+   </script>
+</body>
+</html>

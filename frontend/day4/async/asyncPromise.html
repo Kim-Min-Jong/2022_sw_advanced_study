@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Promise</title>
+</head>
+<body>
+    <script>
+        // async way no wait
+
+        // var data = [ 1, 2, 3 ];
+
+        // function getData(){
+        //     // delay
+        //     setTimeout(()=>{
+        //         data.push( 4 );
+        //         data.push( 5 );
+        //     }, 1000);
+        // }
+
+        // function printData(){
+        //     data.forEach( n => console.log( n ) );
+        // }
+
+        // getData();
+        // printData();
+
+
+
+        // async way - promise
+        var data = [ 1, 2, 3 ];
+
+        function getData(){
+            // Promise 객체 안에서 작업을 수행하고 그 객체를 return
+            // 작업이 성공 / 실패에 따라 resolve() reject() 호출
+            return new Promise( (resolve, reject) => {
+                // delay - 비동기 코드 ( setTimeout 이 대표적인 비동기 코드)
+                setTimeout(() =>{
+                    // job : inside of Promise
+                    data.push( 4 );
+                    data.push( 5 );
+                    const error = false; // change to false for error 
+                    if( !error ) resolve();
+                    else reject('Error!!');
+                }, 1000);
+
+                // 밖에서는 안된다!!!
+                // reslove or reject 
+                //  const error = false; // change to be error
+                // if( !error ) resolve();
+                // else reject('Error!!');
+
+            })
+        }
+
+        function printData(){
+            data.forEach( n => console.log( n ) );
+        }
+
+        getData()
+            .then(printData).catch( e => console.log(e) ); // 성공 then / 실패 catch
+        // getData()
+        //     .then( () => { data.forEach( n => console.log( n ) ); } )
+        //     .catch( e => console.log(e) ); // 성공 then / 실패 catch            
+        
+    </script>
+</body>
+</html>

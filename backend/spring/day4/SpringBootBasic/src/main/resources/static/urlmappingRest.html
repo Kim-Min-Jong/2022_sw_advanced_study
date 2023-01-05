@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <h1>URL Mapping By Fetch</h1>
+   <h4>Fetch 요청에 대한 Controller 의 응답은 JSON 으로 ( @RestController )</h4>
+   <h4>Browser 요청에 대한 Controller 의 응답은 .html 로 ( @Controller + return "result.html" )</h4>
+   <button id="btnHi">hi</button>   
+   <button id="btnHiUrl">Hi/url</button>
+   <br>
+   <button id="btnMethodGet">Method Get</button>
+   <button id="btnMethodPost">Method Post</button>
+   <button id="btnMethodPut">Method Put</button>
+   <button id="btnMethodDelete">Method Delete</button>
+   <br>
+   <button id="btnGetMapping">GetMapping</button>
+   <button id="btnPostMapping">PostMapping</button>
+   <script>
+   window.onload = function(){
+	   document.querySelector("#btnHi").onclick = async function(){
+         let response = await fetch("/hi");
+         console.log(response);
+      };
+      
+      document.querySelector("#btnHiUrl").onclick = async function(){
+         let response = await fetch("/hi/url");
+         console.log(response);
+      };
+      
+      // 목록, 상세 받아오기
+      document.querySelector("#btnMethodGet").onclick = async function(){
+          
+          let response = await fetch("/method");
+          console.log(response);
+       };
+       
+       // 등록 (서버에 입력)
+       document.querySelector("#btnMethodPost").onclick = async function(){
+          
+          let fetchOptions = {
+              method: "POST",
+            }
+          
+          let response = await fetch("/method", fetchOptions);
+          console.log(response);
+       };
+      
+       // put (수정)
+       document.querySelector("#btnMethodPut").onclick = async function(){
+           
+           let response = await fetch("/method/54321", { method: "PUT" }); // 별도의 변수 없이 바로 fetch Option 을 전달할 수도 있음.
+           console.log(response);
+        };
+        
+       
+       // delete 삭제
+        document.querySelector("#btnMethodDelete").onclick = async function(){
+            
+            let response = await fetch("/method/12345", { method: "DELETE" }); // 별도의 변수 없이 바로 fetch Option 을 전달할 수도 있음.
+            console.log(response);
+         };
+         
+         // get mapping
+         document.querySelector("#btnGetMapping").onclick = async function(){
+             
+             let response = await fetch("/getmapping");
+             console.log(response);
+
+          };
+          
+          // post mapping
+          document.querySelector("#btnPostMapping").onclick = async function(){
+             
+             let response = await fetch("/postmapping", { method: "POST" }); // 별도의 변수 없이 바로 fetch Option 을 전달할 수도 있음.
+             console.log(response);
+          };
+   }
+   </script>
+</body>
+</html>
