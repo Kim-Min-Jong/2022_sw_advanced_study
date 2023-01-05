@@ -1,4 +1,4 @@
-package basic;
+package Basic;
 
 import AAA.AAA;
 

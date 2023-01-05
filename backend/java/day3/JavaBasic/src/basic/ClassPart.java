@@ -1,4 +1,4 @@
-package basic;
+package Basic;
 
 public class ClassPart {
 	   // member variable

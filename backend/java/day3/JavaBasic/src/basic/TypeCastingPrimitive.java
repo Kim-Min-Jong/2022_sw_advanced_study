@@ -1,4 +1,4 @@
-package basic;
+package Basic;
 
 public class TypeCastingPrimitive {
 	public static void main(String[] args) {
