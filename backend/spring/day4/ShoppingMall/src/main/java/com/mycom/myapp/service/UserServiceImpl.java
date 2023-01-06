@@ -24,6 +24,12 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDto login(UserDto dto) {
-        return null;
+        UserDto userDto = userDao.login(dto.getUserEmail());
+        if(userDto != null && userDto.getUserPassword().equals(dto.getUserPassword())) {
+            userDto.setUserPassword(null);
+            return userDto;
+        } else {
+            return null;
+        }
     }
 }

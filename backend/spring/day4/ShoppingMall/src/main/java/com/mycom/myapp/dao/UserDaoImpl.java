@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 @Repository
 public class UserDaoImpl implements UserDao{
@@ -54,6 +55,48 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public UserDto login(String userEmail) {
-        return null;
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        UserDto userDto = null;
+
+        try {
+
+            con = dataSource.getConnection();
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("select user_seq, user_name, user_password, user_email, user_profile_image_url, user_register_date ");
+            sb.append("  from users ");
+            sb.append(" where user_email = ? ");
+
+            pstmt = con.prepareStatement(sb.toString());
+            pstmt.setString(1, userEmail);
+
+            rs = pstmt.executeQuery();
+
+            if( rs.next() ) {
+                userDto = new UserDto();
+                userDto.setUserSeq(rs.getInt("user_seq"));
+                userDto.setUserName(rs.getString("user_name"));
+                userDto.setUserPassword(rs.getString("user_password"));
+                userDto.setUserEmail(rs.getString("user_email"));
+                userDto.setUserProfileImageUrl(rs.getString("user_profile_image_url"));
+            }
+
+        }catch(Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if( rs != null ) rs.close();
+                if( pstmt != null ) pstmt.close();
+                if( con != null ) con.close();
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return userDto;
+
     }
 }
