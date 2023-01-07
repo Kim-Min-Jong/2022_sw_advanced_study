@@ -36,6 +36,11 @@ public class HomeController {
         return "/product.html";
     }
 
+    @GetMapping(value = "/mall")
+    private String mall() {
+        return "/mall.html";
+    }
+
     @GetMapping(value = "/logout")
     public String logout(HttpSession session) {
 
