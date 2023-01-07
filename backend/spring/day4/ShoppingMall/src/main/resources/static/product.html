@@ -1,10 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/themes/default.min.css"/>
+
+    <link rel="stylesheet" href="/css/common.css"/>
+
+    <title>상품 관리</title>
 </head>
 <body>
-  <h1>product</h1>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="" id="imgUserProfileImageUrl" alt="Logo" style="width:24px; height: 24px; border-radius: 50%;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">링크</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<div class="container">
+
+    <h4 class="text-center mb-3">상품 관리 - Main</h4>
+
+    <div class="input-group mb-3">
+        <input id="inputSearchWord" type="text" class="form-control" placeholder="Search">
+        <button id="btnSearchWord" class="btn btn-success" type="button">Search</button>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>상품명</th>
+            <th>재고 수량</th>
+            <th>등록 일시</th>
+        </tr>
+        </thead>
+        <tbody id="productTbody">
+        </tbody>
+    </table>
+
+    <button class="btn btn-sm btn-primary" id="btnInsert">상품 등록</button>
+</div>
+
+<!-- modal begin ------------------------------------------------------------------------->
+<!-- Modal insert-->
+<div class="modal" id="productInsertModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-productName">상품 등록</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="productNameInsert" class="form-label">상품 명</label>
+                    <input type="text" class="form-control" id="productNameInsert">
+                </div>
+                <div class="mb-3">
+                    <label for="productStockInsert" class="form-label">상품 수량</label>
+                    <input type="text" class="form-control" id="productStockInsert">
+                </div>
+                <div class="mb-3">
+                    <label for="productImageUrlInsert" class="form-label">상품 이미지</label>
+                    <input type="text" class="form-control" id="productImageUrlInsert">
+                </div>
+                <button id="btnProductInsert" class="btn btn-sm btn-primary btn-outline float-end" data-bs-dismiss="modal" type="button">등록</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<!-- Modal detail-->
+<div class="modal fade" id="productDetailModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-productName">상품 상세</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="example table-responsive">
+                    <table class="table">
+                        <tbody>
+                        <tr><td>상품 ID</td><td id="productIdDetail">#</td></tr>
+                        <tr><td>상품 명</td><td id="productNameDetail">#</td></tr>
+                        <tr><td>상품 수량</td><td id="productStockDetail">#</td></tr>
+                        <tr>
+                            <td>상품 이미지</td>
+                            <td>
+                                <img id="productImageUrlDetail" src="#">
+                            </td>
+                        </tr>
+                        <tr><td>상품 등록일시</td><td id="productRegisterDateDetail">#</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button id="btnProductUpdateForm" class="btn btn-sm btn-primary" data-bs-dismiss="modal" type="button">상품 수정하기</button>
+                <button id="btnProductDeleteConfirm" class="btn btn-sm btn-warning" data-bs-dismiss="modal" type="button">상품 삭제하기</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<!-- Modal update-->
+<div class="modal fade" id="productUpdateModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-productName">상품 수정</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="mb-3">
+                    <label for="productNameUpdate" class="form-label">상품 명</label>
+                    <input type="text" class="form-control" id="productNameUpdate">
+                </div>
+                <div class="mb-3">
+                    <label for="productStockUpdate" class="form-label">상품 수량</label>
+                    <input type="text" class="form-control" id="productStockUpdate">
+                </div>
+                <div class="mb-3">
+                    <label for="productImageUrlUpdate" class="form-label">상품 이미지</label>
+                    <input type="text" class="form-control" id="productImageUrlUpdate">
+                </div>
+                <button id="btnProductUpdate" class="btn btn-sm btn-primary btn-outline float-end" data-bs-dismiss="modal" type="button">수정</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+<!-- modal end --------------------------------------------------------------------------->
+
+<script src="./js/util.js"></script>
+<script src="./js/product.js"></script>
+
 </body>
 </html>
